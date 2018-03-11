@@ -18,8 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # gem 'haml'
-# gem 'devise'
-# gem 'devise-bootstrap-views'
+gem 'devise'
+gem 'devise-bootstrap-views'
 # gem "font-awesome-rails"
 
 # email support
