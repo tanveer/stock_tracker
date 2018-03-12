@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <% if user_signed_in? %>
+        <th>Action</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+
+      <% @user_stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.name %></td>
+        <td><%= stock.ticker %></td>
+        <td><%= stock.last_price %></td>
+        <td><%= link_to 'Remove', user_stock_path(stock), class: 'btn btn-danger btn-xs', method: :delete %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

@@ -1,7 +1,6 @@
 <div class="col-lg-10">
-  <%= bootstrap_flash %>
+  <%= bootstrap_flash if params[:action] == 'search'%>
 </div>
-
 <% if @stock %>
   <div class="panel panel-default">
     <div class="panel-heading text-center">My Favorites</div>
@@ -18,6 +17,22 @@
               <td><%= @stock.ticker %></li></td>
               <td><%= @stock.name %></li></td>
               <td><%= @stock.last_price %></td>
+
+              <% if current_user.can_add_stock?(@stock.ticker) %>
+                <td><%= link_to 'Add Stock', user_stocks_path(user:current_user,
+                  stock_ticker: @stock.ticker), class: 'btn btn-primary',
+                  method: :post %></td>
+              <% else %>
+                <span>
+                  You already have
+                  <% if !current_user.under_stock_limit? %>
+                    reached your stock limit.
+                  <% end %>
+                  <% if current_user.stock_already_added?(@stock.ticker) %>
+                    added this sock.
+                  <% end %>
+                </span>
+              <% end %>
             </tr>
           </tbody>
       </table>
