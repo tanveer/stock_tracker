@@ -1,0 +1,26 @@
+<div class="col-lg-10">
+  <%= bootstrap_flash %>
+</div>
+
+<% if @stock %>
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">My Favorites</div>
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @stock.ticker %></li></td>
+              <td><%= @stock.name %></li></td>
+              <td><%= @stock.last_price %></td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

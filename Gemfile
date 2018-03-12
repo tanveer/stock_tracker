@@ -20,7 +20,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'haml'
 gem 'devise'
 gem 'devise-bootstrap-views'
-# gem "font-awesome-rails"
+gem "font-awesome-rails"
+gem 'stock_quote'
 
 # email support
 gem 'mail_form'
